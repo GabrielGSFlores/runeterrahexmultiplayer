@@ -1,0 +1,50 @@
+
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#0b1220;color:#e7e5dc;font-family:system-ui,Segoe UI,Arial}header{padding:12px 18px;background:#141f32;border-bottom:1px solid #42516a;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}h1{font-size:20px;margin:0;color:#efc77c}#layout{display:grid;grid-template-columns:minmax(0,1fr) 325px;height:calc(100vh - 62px);min-height:590px}#view{position:relative;overflow:hidden;background:#142232}#view canvas{display:block}#hint{position:absolute;left:15px;bottom:14px;padding:9px 12px;border-radius:9px;background:#101a2bdc;font-size:12px;pointer-events:none}aside{padding:16px;overflow:auto;background:#172237;border-left:1px solid #38445a}h2{font-size:17px;color:#efc77c;margin:0 0 10px}h3{font-size:14px;margin:20px 0 9px;color:#c7d4e8}p{line-height:1.5}.muted{color:#aabbd0;font-size:12px}button,select{font:inherit;border:1px solid #63768f;border-radius:8px;background:#253852;color:white;padding:9px;cursor:pointer}button:hover:not(:disabled){background:#3a5878}button:disabled{opacity:.38;cursor:default}.primary{background:#bc9145;color:#131a25;border:0;font-weight:700}.primary:hover:not(:disabled){background:#e2b95f}#actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}#actions button{font-size:13px}#actions .wide{grid-column:1/-1}.panel{padding:12px;background:#202e44;border-radius:10px;margin-bottom:10px}.tag{display:inline-block;padding:3px 8px;border-radius:15px;background:#30465f;font-size:12px}.blue{color:#75c8ff}.red{color:#ff8b89}.row{display:flex;align-items:center;justify-content:space-between;gap:8px}.order{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:7px;margin:7px 0}.order select{width:100%;font-size:13px}.rosterPortrait{width:34px;height:40px;object-fit:cover;border-radius:5px;border:1px solid #7c8190;vertical-align:middle;margin-right:7px}.rosterItem{display:flex;align-items:center;gap:4px;border-bottom:1px solid #34435a;padding:3px 0}#log{font-size:12px;line-height:1.6;max-height:165px;overflow:auto}#log div{border-bottom:1px solid #34435a;padding:3px 0}.hp{height:7px;background:#3b4656;border-radius:5px;overflow:hidden;margin-top:7px}.hp i{display:block;height:100%;background:#75d79d}#turn{font-weight:700}#nextTurn{color:#f0d79b;font-size:13px}#manaBar{height:7px;background:#34435a;border-radius:5px;overflow:hidden;margin-top:6px}#manaBar i{display:block;height:100%;background:#6b9eff;width:0%}.small{font-size:12px}@media(max-width:780px){#layout{grid-template-columns:1fr;height:auto}#view{height:57vh;min-height:390px}aside{border-left:0}header{font-size:13px}}
+#turnSplash{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;background:radial-gradient(ellipse at center,#101a2bd9,#101a2b30 65%,transparent)}#turnSplash.show{opacity:1;visibility:visible}#turnSplash .banner{display:flex;align-items:center;gap:20px;padding:24px 38px;background:#101a2bef;border:1px solid #d2ad6a;border-radius:16px;box-shadow:0 15px 65px #000a;text-align:left}#turnSplash img{width:90px;height:100px;object-fit:contain}#turnSplash strong{display:block;color:#ffe3a4;font-size:clamp(20px,3vw,36px)}#turnSplash small{display:block;color:#c7d4e8;font-size:17px;margin-top:7px}.nationIcon{height:31px;width:31px;object-fit:contain;vertical-align:middle;margin-right:8px}.nationLabel{display:flex;align-items:center;gap:8px}.nationLabel img{width:42px;height:45px;object-fit:contain}#turnSplash .banner.demacia{border-color:#cdd9ec}#turnSplash .banner.demacia strong{color:#dcecff}@media(max-width:550px){#turnSplash .banner{padding:14px;gap:9px}#turnSplash img{width:58px;height:65px}}
+#victoryScreen{position:absolute;inset:0;z-index:30;display:none;align-items:center;justify-content:center;background:#081528dd;flex-direction:column;gap:16px}#victoryScreen.show{display:flex}#victoryScreen img{height:130px;max-width:150px;object-fit:contain}#victoryTitle{font-size:clamp(30px,5vw,58px);color:#ffe19d;text-shadow:0 4px 16px #000}.floatNumber{position:absolute;z-index:25;pointer-events:none;font-weight:900;font-size:44px;letter-spacing:1px;text-shadow:1px 2px 3px #000,-1px -1px 3px #000;transform:translate(-50%,-50%);white-space:nowrap}
+
+/* Menu contextual ao clicar no campeão ativo */
+#actions[hidden]{display:none!important}
+#unitMenu[hidden]{display:none!important}
+#unitMenu{position:absolute;z-index:40;width:226px;padding:12px;background:#12213bf2;border:2px solid #d6b56b;border-radius:14px;box-shadow:0 10px 35px #0009;display:flex;flex-direction:column;gap:7px;backdrop-filter:blur(8px)}
+#unitMenu .unitMenuHead{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#ffe0a0;font-size:16px}
+#unitClose{padding:2px 9px;font-size:21px;background:#3b4054}
+#unitMenuInfo{font-size:11px;color:#b8cde8;margin-bottom:4px}
+#unitMenu button:not(#unitClose){width:100%;text-align:left;font-size:13px;padding:10px 12px}
+#unitSpell{border-color:#a98bdf}
+#unitWait{border-color:#d6b56b}
+
+/* v2.2: overlays DOM reais (imagens carregam em file:// e HTTPS). */
+.unitHud{position:absolute;z-index:12;transform:translate(-50%,-100%);width:142px;pointer-events:none;display:flex;align-items:center;flex-direction:column;gap:3px;filter:drop-shadow(0 2px 2px #000b)}
+.unitHud[hidden],.pushHint[hidden],.unitEffects img[hidden]{display:none!important}
+.unitCrest{width:42px;height:49px;object-fit:contain;display:block;filter:drop-shadow(0 2px 3px #000)}
+.unitBars{width:126px;display:flex;flex-direction:column;gap:3px}
+.unitHp,.unitMana{height:17px;position:relative;border:1px solid #e4e2c8;background:#25313d;overflow:hidden;text-align:center}
+.unitMana{height:13px;border-color:#9daec7}
+.unitHp i,.unitMana i{position:absolute;left:0;top:0;height:100%;display:block;background:#57d68b;transition:width .18s linear}
+.unitMana i{background:#409eff}
+.unitHp span,.unitMana span{position:relative;display:block;color:#fff;font-size:10px;font-weight:800;line-height:15px;text-shadow:0 1px 2px #000}
+.unitMana span{font-size:9px;line-height:11px}
+.unitEffects{position:absolute;left:calc(100% - 4px);bottom:1px;display:flex;gap:3px;align-items:center}
+.unitEffects img{height:25px;width:25px;object-fit:contain;filter:drop-shadow(0 1px 2px #000)}
+.pushHint{position:absolute;z-index:18;pointer-events:none;transform:translate(-50%,-130%);background:#1b263be9;border:2px solid #ffb12b;border-radius:8px;color:#ffe6a1;font-size:12px;font-weight:900;white-space:nowrap;padding:6px 8px;text-shadow:0 1px 2px #000}
+
+.unitHp{position:relative}.unitHp .soulSegment{position:absolute;right:0;top:0;height:100%;background:#aeb4be;opacity:.95;z-index:2;pointer-events:none;border-left:2px solid #e3e5e9}
+
+/* Cards de turno v4.3 */
+#turnCards{position:absolute;right:16px;top:14px;z-index:19;display:flex;flex-direction:column;gap:8px;width:clamp(190px,21vw,270px);pointer-events:none}
+#turnCards[hidden],.turnCard[hidden]{display:none!important}
+.turnCard{height:77px;position:relative;overflow:hidden;border:2px solid #c94756;background:#101a2b;border-radius:5px;box-shadow:0 3px 14px #0008}
+.turnCard.noxus{border-color:#558bdb}.turnCard.demacia{border-color:#dc6974}
+.turnCard>img{width:100%;height:100%;object-fit:cover;object-position:center 34%;display:block}
+.turnCardLabel{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:5px 8px;background:linear-gradient(90deg,#071322a8,transparent 85%),linear-gradient(0deg,#071322dd,transparent 60%);text-shadow:0 2px 4px #000}
+.turnCardLabel strong{font-size:17px;color:#fff}.turnCardLabel span{font-size:11px;font-weight:700;color:#f7e9d1}
+@media(max-width:600px){#turnCards{right:6px;top:6px;width:155px}.turnCard{height:59px}.turnCardLabel strong{font-size:13px}.turnCardLabel span{font-size:9px}}
+
+/* Braum: apenas emblema tribal; quatro partes ficam azuis progressivamente. */
+.braumStacks{display:flex;align-items:center;justify-content:center;padding:0;background:transparent;border:0;box-shadow:none;pointer-events:none;line-height:0;}
+.braumStacks[hidden]{display:none!important}
+.braumStacks img{display:block;width:25px;height:25px;object-fit:contain;filter:drop-shadow(0 1px 3px #000) drop-shadow(0 0 3px #7acfff)}
+
+/* Efeitos novos: mesmos tamanhos dos status existentes. */
+.unitEffects .unitSlow,.unitEffects .unitHaste,.unitEffects .unitFrozen{object-fit:contain}
